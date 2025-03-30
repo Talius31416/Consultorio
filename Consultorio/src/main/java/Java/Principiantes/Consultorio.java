@@ -7,7 +7,8 @@ import java.util.Objects;
 public class Consultorio {
     ArrayList<RegistroPaciente> RegistroPacientes = new ArrayList<>();
     ArrayList<Odontologo> odontologos = new ArrayList<>();
-
+    ArrayList<RegistroPaciente> citasGratis = new ArrayList<>();
+    
     public String crearPaciente(String nombre, int edad, String telefono, String direccion, LocalDate ultimaConsulta, int numeroHistoricoPaciente){
         String texto = "El paciente fue creado con exito";
         for(RegistroPaciente registroPacientesAux : RegistroPacientes){
@@ -100,5 +101,12 @@ public class Consultorio {
         }
         odontologos.remove(aux);
         return texto;
+    }
+    public void pacientesCitasGratis(){
+        for(RegistroPaciente registroPacienteAux : RegistroPacientes){
+            if(registroPacienteAux.getRegistroPaciente().size() >= 5){
+                citasGratis.add(registroPacienteAux);
+            }
+        }
     }
 }
